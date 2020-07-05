@@ -1,0 +1,6 @@
+moviepy
+madmom
+librosa
+msaf
+youtube_dl
+scenedetect
