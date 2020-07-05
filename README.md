@@ -1,7 +1,7 @@
 # MusicVideoMaker
 Automatically generating a music video by extracting scenes from another video.
 
-[![IMAGE ALT TEXT HERE](https://i.ytimg.com/vi/tDi7jL-jiu4/maxresdefault.jpg)](https://youtu.be/tDi7jL-jiu4)
+[![IMAGE ALT TEXT HERE](https://i.ytimg.com/vi/tDi7jL-jiu4/hqdefault.jpg)](https://youtu.be/tDi7jL-jiu4)
 
 ## Requirements
 
