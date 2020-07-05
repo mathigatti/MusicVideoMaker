@@ -15,7 +15,7 @@ def parts(audio_file):
 	for v_min, v_max in zip(boundaries[:-1], boundaries[1:]):
 		boundaries_info[labels2ids[labels[l_index]]].append((v_min,v_max))
 		l_index += 1
-	
+
 	clean()
 	return boundaries_info
 
