@@ -12,9 +12,9 @@ Automatically generating a music video by extracting scenes from another video.
 
 ### Step 1: Extracting scenes from a video
 
-If the video contains music (i.e it's a music video) the program is going to take advantage of that identifying sections like verse, chorus and bridges, those sections are saved into temp folder, then scendetect splits those into scenes and saves the result into the scenes folder.
+If the video contains music (i.e it's a music video) the program is going to take advantage of that identifying sections like verse, chorus and bridges, those sections are saved into temp folder, then scendetect splits those into scenes and saves the result into the _scenes_ folder.
 
-The script has 3 parameters. `VIDEO_PATH`, is the video we want to process. `SCENE_SPLITTER_SENSITIVITY` is an optional `integer` value, it's to tune the sensitivity of the [scene splitter](https://pyscenedetect.readthedocs.io/en/latest/examples/usage-example/), it's 20 by default. `IS_MUSIC_VIDEO` is an optional `boolean` value, it's True by default.
+The script has 3 parameters. `VIDEO_PATH`, is the video we want to process. `SCENE_SPLITTER_SENSITIVITY` is an optional `integer` value, it's for tuning the sensitivity of the [scene splitter](https://pyscenedetect.readthedocs.io/en/latest/examples/usage-example/), it's 20 by default. `IS_MUSIC_VIDEO` is an optional `boolean` value, it's True by default.
 
 python scenes_preprocessing.py VIDEO_PATH SCENE_SPLITTER_SENSITIVITY IS_MUSIC_VIDEO
 
