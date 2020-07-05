@@ -1,8 +1,23 @@
 from moviepy.editor import VideoFileClip
 from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
 import time
-from music_video import parts
+from music_video import clean
 import sys, os
+import msaf
+
+def parts(audio_file):
+	boundaries, labels = msaf.process(audio_file, boundaries_id="foote", labels_id="fmc2d")
+	parts_names = ["A","B","C","D","E","F","G","H","I","J","K","L"]
+	labels2ids = {list(set(labels))[i]:parts_names[i%len(parts_names)] for i in range(len(set(labels)))}
+
+	boundaries_info = {k:[] for k in labels2ids.values()}
+	l_index = 0
+	for v_min, v_max in zip(boundaries[:-1], boundaries[1:]):
+		boundaries_info[labels2ids[labels[l_index]]].append((v_min,v_max))
+		l_index += 1
+	
+	clean()
+	return boundaries_info
 
 def extract_audio(video,audio_path):
 	video = VideoFileClip(video)
@@ -38,7 +53,7 @@ if __name__ == "__main__":
 		extract_audio(video, audio)
 
 		print("Identifying song sections")
-		boundaries_info, _ = parts(audio)
+		boundaries_info = parts(audio)
 	else:
 		boundaries_info = {"A":[(0,float('inf'))]}
 

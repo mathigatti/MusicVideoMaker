@@ -31,7 +31,7 @@ def clean():
 	os.system("rm -rf estimations")
 
 
-def parts(audio_file):
+def parts(audio_file,videos_folder):
 	signal, sr = librosa.load(audio_file, sr=None, mono=True)
 	act = madmom.features.downbeats.RNNDownBeatProcessor()(signal)
 	proc = madmom.features.downbeats.DBNDownBeatTrackingProcessor(beats_per_bar=[3, 4], fps=100)
@@ -42,7 +42,7 @@ def parts(audio_file):
 	print("BOUNDARIES",boundaries)
 	print("LABELS",labels)
 
-	parts_names = ["A","B","C","D","E","F","G","H","I","J","K","L","M"]
+	parts_names = os.listdir(videos_folder)
 	labels2ids = {list(set(labels))[i]:parts_names[i%len(parts_names)] for i in range(len(set(labels)))}
 
 	boundaries_info = {k:[] for k in labels2ids.values()}
@@ -80,7 +80,7 @@ def video_lengths(videos_folder, parts_names):
 
 def music_video(videos_folder,audio):
 	
-	boundaries_info, downbeat_times = parts(audio)
+	boundaries_info, downbeat_times = parts(audio,videos_folder)
 	parts_names = set(boundaries_info.keys())
 	lengths = video_lengths(videos_folder, parts_names)
 
