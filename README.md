@@ -26,7 +26,7 @@ This will generate folders containing the clips inside the _scenes_ folder.
 
 ### Step 2: Check everything is fine
 
-It might be good before generating the final video to check that the scenes to will be used look fine. You can delete any clip that you don't like. You can also just mix or delete section folders.
+It might be good before generating the final video to check that the scenes to will be used look fine. You can delete any clip that you don't like. You can also just mix or delete scenes folders.
 
 ### Step 3: Using scenes to create music video
 
