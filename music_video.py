@@ -32,12 +32,10 @@ def clean():
 
 
 def parts(audio_file,videos_folder):
-	signal, sr = librosa.load(audio_file, sr=None, mono=True)
-	act = madmom.features.downbeats.RNNDownBeatProcessor()(signal)
-	proc = madmom.features.downbeats.DBNDownBeatTrackingProcessor(beats_per_bar=[3, 4], fps=100)
-	processor_output = proc(act)
-	downbeat_times = processor_output[processor_output[:,1]==1,0]
-
+	os.system(f'DBNDownBeatTracker --downbeats single "{audio_file}" >> beats.txt')
+	with open('beats.txt','r') as f:
+		downbeat_times = list(map(float,f.readlines()))
+	
 	boundaries, labels = msaf.process(audio_file, boundaries_id="foote", labels_id="fmc2d")
 	print("BOUNDARIES",boundaries)
 	print("LABELS",labels)
