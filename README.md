@@ -39,3 +39,12 @@ Once we have our folder with video scenes we use it to create a music video. The
 `python music_video.py scenes samples/TimeToPretend.mp3`
 
 This will generate a video called _output_
+
+
+## Credits and support
+This source code was developed by Mathias Gatti ([@mathigatti](https://mathigatti.com)) if you use it please remember to cite me.
+
+Mathias's open-source projects are supported by [his Patreon](https://www.patreon.com/mathigatti). If you found this project helpful, any monetary contributions to the Patreon are appreciated and will be put to good creative use.
+
+## License
+MIT
