@@ -4,3 +4,4 @@ librosa
 msaf
 youtube_dl
 scenedetect
+scipy==1.2.0
