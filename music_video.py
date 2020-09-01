@@ -30,6 +30,8 @@ def clean():
 	os.system("rm -rf .features_msaf_tmp.json")
 	os.system("rm -rf estimations")
 
+def not_empty(folder):
+  return len(os.listdir(folder)) > 0
 
 def parts(audio_file,videos_folder):
 	os.system(f'DBNDownBeatTracker --downbeats single "{audio_file}" >> beats.txt')
@@ -40,7 +42,7 @@ def parts(audio_file,videos_folder):
 	print("BOUNDARIES",boundaries)
 	print("LABELS",labels)
 
-	parts_names = os.listdir(videos_folder)
+	parts_names = [folder for folder in os.listdir(videos_folder) if len(folder) == 1 and not_empty(os.path.join(videos_folder,folder))]
 	labels2ids = {list(set(labels))[i]:parts_names[i%len(parts_names)] for i in range(len(set(labels)))}
 
 	boundaries_info = {k:[] for k in labels2ids.values()}
@@ -116,7 +118,7 @@ if __name__ == "__main__":
 	videos_folder = sys.argv[1]
 	audio = sys.argv[2]
 
-	if "youtube.com" in audio:
+	if "youtube" in audio:
 		download_from_youtube(audio,song_name="youtube_song.mp3")
 		audio = "youtube_song.mp3"
 
