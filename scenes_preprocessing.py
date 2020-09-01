@@ -63,6 +63,7 @@ if __name__ == "__main__":
 		os.system(f"mkdir -p temp/{part_name}")
 		os.system(f"mkdir -p scenes/{part_name}")
 		for v_min, v_max in boundaries:
-			temp_video = f"temp/{part_name}/{timestr()}.{extension}"
-			ffmpeg_extract_subclip(video, v_min, v_max, targetname=temp_video)
-			os.system(f"scenedetect -q -i {temp_video} -o scenes/{part_name} detect-content -t {scenes_threshold} split-video")
+		  if v_max - v_min > 1:
+		    temp_video = f"temp/{part_name}/{timestr()}.{extension}"
+		    ffmpeg_extract_subclip(video, v_min, v_max, targetname=temp_video)
+		    os.system(f"scenedetect -q -i {temp_video} -o scenes/{part_name} detect-content -t {scenes_threshold} split-video")
