@@ -3,14 +3,14 @@ Automatically generating a music video by extracting scenes from another video.
 
 [![IMAGE ALT TEXT HERE](https://i.ytimg.com/vi/tDi7jL-jiu4/hqdefault.jpg)](https://youtu.be/tDi7jL-jiu4)
 
+## Try it on colab
+
+You can try it without installing anything by using [this colab](https://colab.research.google.com/drive/1SlTTYvbazihw3nC442UpI8wBVEs68_qp#scrollTo=QqBrD_mVGzA7).
+
 ## Requirements
 
 - Python 3.6 or newer
 - A few python libraries (Try something like `pip install -r requirements.txt`)
-
-## Try it on colab
-
-You can try it without installing anything by using [this colab](https://colab.research.google.com/drive/1SlTTYvbazihw3nC442UpI8wBVEs68_qp#scrollTo=QqBrD_mVGzA7)
 
 ## How it works
 
